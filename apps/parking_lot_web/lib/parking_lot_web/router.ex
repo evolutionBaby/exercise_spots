@@ -19,6 +19,15 @@ defmodule ParkingLotWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/api", ParkingLotWeb.Api do
+    pipe_through :api
+
+    resources("/levels", LevelController, only: [:index])
+
+    get("/find_parking_spot", ParkingSpotController, :find_parking_spot)
+    post("/parking_spots/:id/book", ParkingSpotController, :book)
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", ParkingLotWeb do
   #   pipe_through :api
