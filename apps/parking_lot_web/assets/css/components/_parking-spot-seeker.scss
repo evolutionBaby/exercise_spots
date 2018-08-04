@@ -1,0 +1,45 @@
+.ParkingSpotSeeker {
+  margin-bottom: 40px;
+
+  &__form {
+    display: flex;
+  }
+
+  &__label {
+    margin-right: 10px;
+  }
+
+  &__input-group {
+    padding: 10px;
+    border: 1px solid $divider-color;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+  }
+
+  &__results-container {
+    margin-top: 20px;
+  }
+
+  &__submit-button {
+    @include submit-button;
+    padding: 10px 30px;
+    margin-left: 20px;
+  }
+
+  &__input {
+    width: 100%;
+    border: 0px;
+    box-shadow: 0;
+    width: 100px;
+    margin-left: 10px;
+  }
+
+  &__card {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.1);
+    padding: 10px;
+  }
+}

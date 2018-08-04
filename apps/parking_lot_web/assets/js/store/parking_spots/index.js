@@ -4,16 +4,20 @@ import * as types from './utils/mutation-types'
 const namespaced = true
 
 const state = {
-  readyParkingSpot: {}
+  readyParkingSpot: null
+}
+
+const getters = {
+  readyParkingSpot: state => state.readyParkingSpot
 }
 
 const actions = {
   find({commit}, vehicleSize) {
     api.findFreeParkingSpot(vehicleSize).then(
-      (parking_spot) => {
-        let levels = response.data
+      (response) => {
+        let parkingSpot = response.data.parking_spot
 
-        commit(types.SET_PARKING_SPOT, {parking_spot})
+        commit(types.SET_PARKING_SPOT, {parkingSpot})
       },
       (error) => {}
     )
@@ -24,14 +28,15 @@ const actions = {
 }
 
 const mutations = {
-  [types.SET_PARKING_SPOT] (state, {parking_spot}) {
-    state.readyParkingSpot = parking_spot
+  [types.SET_PARKING_SPOT] (state, {parkingSpot}) {
+    state.readyParkingSpot = parkingSpot
   }
 }
 
 export default {
   namespaced,
   state,
+  getters,
   actions,
   mutations
 }
