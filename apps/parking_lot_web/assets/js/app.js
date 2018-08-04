@@ -11,7 +11,7 @@
 //
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-import "phoenix_html"
+import "phoenix_html";
 
 // Import local files
 //
@@ -19,3 +19,20 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+import axios from 'axios'
+
+import ParkingLotApp from './App.vue';
+import store from "./store/index";
+
+Vue.config.productionTip = false;
+
+Vue.component('ParkingLotApp', ParkingLotApp);
+
+const app = new Vue({
+  data: {},
+  el: '#app',
+  store,
+  render: h => h(ParkingLotApp)
+});
+
+export { app, store }

@@ -1,9 +1,27 @@
 defmodule ParkingLot do
-  @moduledoc """
-  ParkingLot keeps the contexts that define your domain
-  and business logic.
+  # INTERNAL HELPERS
+  defmacro __using__(which) when is_atom(which) do
+    apply(__MODULE__, which, [])
+  end
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  @doc false
+  def schema do
+    quote do
+      use Ecto.Schema
+      import Ecto.Changeset
+    end
+  end
+
+  @doc false
+  def service do
+    quote do
+      # Enables tuple calls for Mockery but only in test environemnt.
+      if function_exported?(Mix, :env, 0) && Mix.env() == :test, do: @compile(:tuple_calls)
+
+      import Ecto.Query
+
+      alias ParkingLot.Option
+      alias ParkingLot.Repo
+    end
+  end
 end

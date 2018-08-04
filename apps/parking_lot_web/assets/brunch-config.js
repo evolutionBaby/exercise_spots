@@ -20,7 +20,10 @@ exports.config = {
       // }
     },
     stylesheets: {
-      joinTo: "css/app.css"
+      joinTo: "css/app.css",
+      order: {
+        after: ["css/app.scss"] // concat app.scss last
+      }
     },
     templates: {
       joinTo: "js/app.js"
@@ -37,7 +40,7 @@ exports.config = {
   // Phoenix paths configuration
   paths: {
     // Dependencies and current project directories to watch
-    watched: ["static", "css", "js", "vendor"],
+    watched: ["static", "css", "js", "vendor", "scss"],
     // Where to compile files to
     public: "../priv/static"
   },
@@ -47,6 +50,15 @@ exports.config = {
     babel: {
       // Do not use ES6 compiler in vendor code
       ignore: [/vendor/]
+    },
+    sass: {
+      mode: "native",
+      options: {
+        includePaths: [
+          'node_modules/'
+        ],
+        precision: 8
+      }
     }
   },
 
@@ -57,6 +69,10 @@ exports.config = {
   },
 
   npm: {
-    enabled: true
+    enabled: true,
+    whitelist: ["phoenix", "phoenix_html", "vue"],
+    globals: {
+      Vue: "vue/dist/vue.common.js"
+    }
   }
 };
