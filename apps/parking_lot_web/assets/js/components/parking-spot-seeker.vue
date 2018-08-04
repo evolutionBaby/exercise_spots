@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import ParkingSpot from "./level-list-components/parking-spot"
+import ParkingSpot from "./parking-spot"
 
 export default {
   name: "ParkingSpotSeeker",
