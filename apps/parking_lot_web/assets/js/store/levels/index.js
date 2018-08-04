@@ -1,5 +1,5 @@
-import api from './api'
-import * as types from "./mutation-types"
+import api from './utils/api'
+import * as types from "./utils/mutation-types"
 
 const namespaced = true
 

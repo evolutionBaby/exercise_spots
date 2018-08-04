@@ -15,6 +15,7 @@ defmodule ParkingLotWeb.Api.ParkingSpotView do
 
   def render("parking_spot.json", %{parking_spot: parking_spot}) do
     %{
+      id: parking_spot.id,
       number: parking_spot.number,
       taken: parking_spot.taken,
       size: parking_spot.size,

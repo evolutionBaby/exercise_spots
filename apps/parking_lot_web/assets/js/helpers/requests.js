@@ -4,7 +4,7 @@ axios.defaults.headers.common['Content-Type'] = "application/json";
 axios.defaults.headers.common['Accept'] = "application/json";
 
 const requestHelper = {
-  get(path, params) {
+  get(path, params = {}) {
     let promise = axios.get(
       path,
       {
@@ -15,7 +15,7 @@ const requestHelper = {
 
     return promise
   },
-  post(path, body) {
+  post(path, body = {}) {
     let promise = axios.get(
       path,
       body,
