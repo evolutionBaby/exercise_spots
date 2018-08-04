@@ -6,6 +6,8 @@ defmodule ParkingLot.Repo.Migrations.CreateParkingSpotsTable do
       add :number, :integer
       add :taken, :boolean, default: false
       add :level_id, references(:levels, on_delete: :delete_all)
+
+      timestamps()
     end
 
     create index(:parking_spots, [:level_id])
