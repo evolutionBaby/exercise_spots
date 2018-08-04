@@ -7,8 +7,21 @@ defmodule ParkingLot.ParkingSpotService do
     Repo.fetch_one(
       from p in ParkingSpot,
       where: p.taken == false and p.size >= ^vehicle_size,
-      order_by: [asc: p.size]
+      order_by: [asc: p.size],
       limit: 1
     )
+  end
+
+  def fetch_for_booking(id) do
+    Repo.fetch(
+      from p in ParkingSpot,
+      where: p.id == ^id and p.taken == false
+    )
+  end
+
+  def book(%ParkingSpot{} = parking_spot) do
+    parking_spot
+    |> ParkingSpot.changeset(%{taken: true})
+    |> Repo.update()
   end
 end
