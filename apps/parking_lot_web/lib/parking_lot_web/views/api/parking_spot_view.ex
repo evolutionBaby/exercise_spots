@@ -7,7 +7,7 @@ defmodule ParkingLotWeb.Api.ParkingSpotView do
         render_one(
           parking_spot,
           __MODULE__,
-          "parking_spot.proto",
+          "parking_spot.json",
           as: :parking_spot
         )
     }
