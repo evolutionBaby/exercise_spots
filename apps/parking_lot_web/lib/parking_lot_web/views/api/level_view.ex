@@ -7,6 +7,7 @@ defmodule ParkingLotWeb.Api.LevelView do
 
   def render("level.json", %{level: level}) do
     %{
+      id: level.id,
       number: level.number,
       parking_spots: render_many(
         level.parking_spots,

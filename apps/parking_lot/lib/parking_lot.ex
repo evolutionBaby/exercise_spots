@@ -20,8 +20,8 @@ defmodule ParkingLot do
 
       import Ecto.Query
 
-      alias Concierge.Option
-      alias Concierge.Repo
+      alias ParkingLot.Option
+      alias ParkingLot.Repo
     end
   end
 end

@@ -7,7 +7,7 @@ defmodule ParkingLotWeb.Api.ParkingSpotView do
         render_one(
           parking_spot,
           __MODULE__,
-          "parking_spot.proto",
+          "parking_spot.json",
           as: :parking_spot
         )
     }
@@ -15,9 +15,11 @@ defmodule ParkingLotWeb.Api.ParkingSpotView do
 
   def render("parking_spot.json", %{parking_spot: parking_spot}) do
     %{
+      id: parking_spot.id,
       number: parking_spot.number,
       taken: parking_spot.taken,
       size: parking_spot.size,
+      level_id: parking_spot.level_id
     }
   end
 end

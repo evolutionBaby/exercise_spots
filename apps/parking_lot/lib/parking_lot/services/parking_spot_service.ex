@@ -13,9 +13,10 @@ defmodule ParkingLot.ParkingSpotService do
   end
 
   def fetch_for_booking(id) do
-    Repo.fetch(
+    Repo.fetch_one(
       from p in ParkingSpot,
-      where: p.id == ^id and p.taken == false
+      where: p.id == ^id and p.taken == false,
+      limit: 1
     )
   end
 

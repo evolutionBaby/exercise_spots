@@ -1,0 +1,35 @@
+.ParkingSpot {
+  width: 100%;
+
+  & + & {
+    border-top: 1px solid $divider-color;
+  }
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  &__label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: $font-light;
+    margin-bottom: 5px;
+  }
+
+  &__value {
+    font-size: 16px;
+  }
+
+  &__book-button {
+    @include submit-button;
+    padding: 5px 20px;
+    color: #FFFFFF;
+  }
+
+  &--taken {
+    color: $font-red;
+  }
+}
