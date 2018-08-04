@@ -6,6 +6,9 @@
 
 <script>
 export default {
-  name: "ParkingLotApp"
+  name: "ParkingLotApp",
+  mounted() {
+    this.$store.dispatch("levels/fetchLevels")
+  }
 }
 </script>

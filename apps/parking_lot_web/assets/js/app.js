@@ -19,10 +19,12 @@ import "phoenix_html";
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
-Vue.config.productionTip = false;
+import axios from 'axios'
 
 import ParkingLotApp from './App.vue';
 import store from "./store/index";
+
+Vue.config.productionTip = false;
 
 Vue.component('ParkingLotApp', ParkingLotApp);
 
