@@ -1,9 +1,9 @@
 import requestHelper from "js/helpers/requests"
 
 const api = {
-  findFreeParkingSpot(vehicle_size) {
+  findFreeParkingSpot(vehicleSize) {
     let promise = requestHelper.get('/api/find_parking_spot',
-      {vehicle_size: vehicle_size}
+      {vehicle_size: vehicleSize}
     )
 
     return promise

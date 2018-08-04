@@ -8,7 +8,7 @@ const state = {
 }
 
 const getters = {
-  levels: state => state.levels
+  list: state => state.levels
 }
 
 const actions = {
