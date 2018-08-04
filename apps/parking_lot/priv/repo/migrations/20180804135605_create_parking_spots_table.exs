@@ -4,7 +4,7 @@ defmodule ParkingLot.Repo.Migrations.CreateParkingSpotsTable do
   def change do
     create table(:parking_spots) do
       add :number, :integer
-      add :taken, :bool, default: false
+      add :taken, :boolean, default: false
       add :level_id, references(:levels, on_delete: :delete_all)
     end
 
