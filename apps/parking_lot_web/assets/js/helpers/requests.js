@@ -16,7 +16,7 @@ const requestHelper = {
     return promise
   },
   post(path, body = {}) {
-    let promise = axios.get(
+    let promise = axios.post(
       path,
       body,
       {

@@ -19,6 +19,7 @@ defmodule ParkingLotWeb.Api.ParkingSpotView do
       number: parking_spot.number,
       taken: parking_spot.taken,
       size: parking_spot.size,
+      level_id: parking_spot.level_id
     }
   end
 end

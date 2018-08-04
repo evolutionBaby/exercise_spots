@@ -9,7 +9,7 @@ const api = {
     return promise
   },
   book(id) {
-    let promise = requestHelper.get(`/api/parking_spots/${id}/book`)
+    let promise = requestHelper.post(`/api/parking_spots/${id}/book`)
 
     return promise
   }

@@ -31,6 +31,7 @@
         <button
         type="button"
         class="ParkingSpot__book-button"
+        @click="performBooking"
         :disabled="isTaken">
           Book
         </button>
@@ -57,7 +58,12 @@ export default {
     },
     status() {
       return this.isTaken ? "Taken" : "Free"
-    },
+    }
+  },
+  methods: {
+    performBooking() {
+      this.$store.dispatch("parkingSpots/book", this.parkingSpot)
+    }
   }
 }
 </script>

@@ -21,6 +21,9 @@ const actions = {
       },
       (error) => {}
     )
+  },
+  markSpotAsTaken({commit}, parkingSpot) {
+    commit(types.SET_PARKING_SPOT_STATUS, {parkingSpot})
   }
 }
 
@@ -30,6 +33,19 @@ const mutations = {
     levels.forEach((level) => {
       state.levels.push(level)
     })
+  },
+  [types.SET_PARKING_SPOT_STATUS] (state, {parkingSpot}) {
+    parkingSpot.taken = true
+
+    let index = state.levels.findIndex((level) => {
+      return level.id = parkingSpot.level_id
+    })
+
+    let parkingSpotIndex = state.levels[index].parking_spots.findIndex((p) => {
+      return p.id == parkingSpot.id
+    })
+
+    state.levels[index].parking_spots.splice(parkingSpotIndex, 1, parkingSpot)
   }
 }
 

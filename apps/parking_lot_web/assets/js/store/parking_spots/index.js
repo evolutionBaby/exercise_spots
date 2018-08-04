@@ -22,8 +22,15 @@ const actions = {
       (error) => {}
     )
   },
-  book({commit}, id) {
-    return api.book(id)
+  book({commit, dispatch}, parkingSpotToBook) {
+    api.book(parkingSpotToBook.id).then(
+      (response) => {
+        let parkingSpot = null
+        commit(types.SET_PARKING_SPOT, {parkingSpot})
+        dispatch("levels/markSpotAsTaken", parkingSpotToBook, {root: true})
+      },
+      (error) => {}
+    )
   }
 }
 
